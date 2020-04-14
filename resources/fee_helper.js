@@ -38,8 +38,12 @@ Helper.prototype.addFeesTo = function(amountKobo) {
   }
 };
 
-Helper.prototype.addTransferFees = function(amountKobo){
-  
+Helper.prototype.subTransferFees = function(amountKobo){
+  if(amountKobo <= 5000){
+    return Math.ceil(amountKobo + 1000);
+  } else if (amountKobo >= 5000000 ){
+    return Math.ceil(amountKobo + )
+  }
 
 
 }
