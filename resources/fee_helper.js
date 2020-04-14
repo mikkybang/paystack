@@ -7,7 +7,7 @@ function Helper({
   percentage = DEFAULT_PERCENTAGE,
   cap = DEFAULT_CAP,
   threshold = DEFAULT_THRESHOLD,
-  additionalCharge = DEFAULT_ADDITIONAL_CHARGE
+  additionalCharge = DEFAULT_ADDITIONAL_CHARGE,
 } = {}) {
   // Validation
   if (percentage <= 0 || percentage >= 1)
@@ -28,7 +28,7 @@ function Helper({
   this.flatLine = this.flatLineWithCharge - cap;
 }
 
-Helper.prototype.addFeesTo = function(amountKobo) {
+Helper.prototype.addFeesTo = function (amountKobo) {
   if (amountKobo > this.flatLine) {
     return Math.ceil(amountKobo + this.cap);
   } else if (amountKobo > this.crossover) {
@@ -38,14 +38,17 @@ Helper.prototype.addFeesTo = function(amountKobo) {
   }
 };
 
-Helper.prototype.subTransferFees = function(amountKobo){
-  if(amountKobo <= 5000){
-    return Math.ceil(amountKobo + 1000);
-  } else if (amountKobo >= 5000000 ){
-    return Math.ceil(amountKobo + )
+Helper.prototype.subTransferFees = function (amountKobo) {
+  if(amountKobo < 5000){
+    
   }
-
-
-}
+  if (amountKobo <= 5000) {
+    return Math.ceil(amountKobo - 1000);
+  } else if (amountKobo >= 5000000) {
+    return Math.ceil(amountKobo - 2500);
+  } else {
+    return Math.ceil(amountKobo - 5000)
+  }
+};
 
 module.exports = Helper;
