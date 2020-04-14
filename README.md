@@ -87,6 +87,17 @@ console.log(helper.addFeesTo(5000));
 
 #### II
 
+A function to remove Paystack's transfer fee from your transfer amount
+
+```js
+const helper = new paystack.FeeHelper();
+console.log(helper.removeTransferFees(20000))
+```
+
+Outputs → `19000`
+
+#### III
+
 A Paystack Events helper (Express Middleware)
 ```js
 const paystack = require("paystack-api")("secret_key");
