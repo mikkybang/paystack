@@ -38,4 +38,10 @@ Helper.prototype.addFeesTo = function(amountKobo) {
   }
 };
 
+Helper.prototype.addTransferFees = function(amountKobo){
+  
+
+
+}
+
 module.exports = Helper;
