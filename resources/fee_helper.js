@@ -38,13 +38,13 @@ Helper.prototype.addFeesTo = function (amountKobo) {
   }
 };
 
-Helper.prototype.subTransferFees = function (amountKobo) {
+Helper.prototype.removeTransferFees = function (amountKobo) {
   if(amountKobo < 5000){
-    
+    throw Error('Amount too small to Transfer')
   }
-  if (amountKobo <= 5000) {
+  if (amountKobo <= 500000) {
     return Math.ceil(amountKobo - 1000);
-  } else if (amountKobo >= 5000000) {
+  } else if (amountKobo <= 5000000) {
     return Math.ceil(amountKobo - 2500);
   } else {
     return Math.ceil(amountKobo - 5000)
